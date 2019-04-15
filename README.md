@@ -3,7 +3,7 @@ Sum of handwritten digits (MNIST), implemented in PyTorch.
 
 The approach is based on the [Deep Sets paper](https://arxiv.org/abs/1703.06114), by Zaheer *et al.* The orginal implementation by the authors (using Keras) is available [here](https://github.com/manzilzaheer/DeepSets/blob/master/DigitSum/image_sum.ipynb).
 
-This repo includes a complete PyTorch implementation of both the Permutation Equivariant and Permutation Invariant layers, available in ``deepsetlayers.py``.
+This repo includes a complete PyTorch implementation of both the permutation equivariant and permutation invariant layers, available in ``deepsetlayers.py``.
 
 ## Data acquisition
 We use the [InfiMNIST digits](https://leon.bottou.org/projects/infimnist) exactly as described [here](https://github.com/manzilzaheer/DeepSets/tree/master/DigitSum). For your convenience, you may use our `infimnist_parser.py` to parse the InfiMNIST binaries. This was adapted from [this script](https://github.com/CY-dev/infimnist-parser/blob/master/infimnist_parser.py) from Congrui Yi in order to produce precisely the required files to run our model.
