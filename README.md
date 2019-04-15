@@ -6,7 +6,7 @@ The approach is based on the [Deep Sets paper](https://arxiv.org/abs/1703.06114)
 This repo includes a complete PyTorch implementation of both the permutation equivariant and permutation invariant layers, available in ``deepsetlayers.py``.
 
 ## Data acquisition
-We use the [InfiMNIST digits](https://leon.bottou.org/projects/infimnist) exactly as described [here](https://github.com/manzilzaheer/DeepSets/tree/master/DigitSum). For your convenience, you may use our `infimnist_parser.py` to parse the InfiMNIST binaries. This was adapted from [this script](https://github.com/CY-dev/infimnist-parser/blob/master/infimnist_parser.py) from Congrui Yi in order to produce precisely the required files to run our model.
+We use the [InfiMNIST digits](https://leon.bottou.org/projects/infimnist) exactly as described [here](https://github.com/manzilzaheer/DeepSets/tree/master/DigitSum). For your convenience, you may use our `infimnist_parser.py` to parse the InfiMNIST binaries. This was adapted from [this script](https://github.com/CY-dev/infimnist-parser/blob/master/infimnist_parser.py) in order to produce precisely the required files to run our model.
 
 ## Usage
 Training and testing: `python image_sum.py --train=1`
