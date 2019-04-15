@@ -62,11 +62,12 @@ class VisdomDictPlotter(object):
                          env=self.env,
                          win=self.plots[var_name],
                          opts=dict(
-                            rownames=keys,
-                            title=title_name,
-                            xlabel=keys_name,
-                            ylabel=var_name)
+                             rownames=keys,
+                             title=title_name,
+                             xlabel=keys_name,
+                             ylabel=var_name)
                          )
+
 
 class VisdomImgsPlotter(object):
     """Plots to Visdom"""
@@ -76,8 +77,8 @@ class VisdomImgsPlotter(object):
         self.plots = {}
     def plot(self, var_name, images, labels):
         self.plots[var_name] = self.viz.images(
-                images,
-                env=self.env,
-                opts=dict(
-                    caption=str([l.item() for l in labels]))
-                )
+            images,
+            env=self.env,
+            opts=dict(
+                caption=str([l.item() for l in labels]))
+            )
