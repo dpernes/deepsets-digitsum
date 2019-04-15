@@ -37,5 +37,5 @@ The following optional arguments may be passed to `image_sum.py`:
 Using the default parameters, one obtains better results than those reported in the paper. This is mostly due to the fact that we use a CNN instead of an MLP to extract image features. The test accuracy for set cardinalities between 5 and 100 is shown below.
 
 <p align="center">
-  <img src='mnist_sum_test_acc.png', width="50%">
+  <img src='mnist_sum_test_acc.png', width="75%">
 </p>
