@@ -17,8 +17,10 @@ class EquivLinear(nn.Module):
         out_features: size of each output sample
         bias: If set to False, the layer will not learn an additive bias.
             Default: ``True``
+        reduction: Permutation invariant operation that maps the input set into a single
+            vector. Currently, the following are supported: mean, sum, max and min.
     """
-    def __init__(self, in_features, out_features, bias=True, reduction='average'):
+    def __init__(self, in_features, out_features, bias=True, reduction='mean'):
         super(EquivLinear, self).__init__()
 
         self.in_features = in_features
@@ -117,8 +119,10 @@ class InvLinear(EquivLinear):
         out_features: size of each output sample
         bias: If set to False, the layer will not learn an additive bias.
             Default: ``True``
+        reduction: Permutation invariant operation that maps the input set into a single
+            vector. Currently, the following are supported: mean, sum, max and min.
     """
-    def __init__(self, in_features, out_features, bias=True, reduction='average'):
+    def __init__(self, in_features, out_features, bias=True, reduction='mean'):
         super(InvLinear, self).__init__(in_features, out_features, bias=bias, reduction=reduction)
         self.reset_parameters()
 
