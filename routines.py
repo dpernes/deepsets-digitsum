@@ -6,6 +6,9 @@ from torch.utils.data import DataLoader
 def accuracy(output, target):
     return (target.long() == output.round().long()).float().mean().item()
 
+def get_mask(sizes, max_size):
+    return (torch.arange(max_size).reshape(1, -1).to(sizes.device) < sizes.reshape(-1, 1))
+
 def train(model, loss_fn, optimizer, epochs, train_loader,
           valid_loader=None, device='cuda:0', visdom=None, model_path='./mnist_adder.pth'):
     reduce_lr = ReduceLROnPlateau(optimizer, factor=0.5, patience=20, min_lr=0.000001)
@@ -26,7 +29,8 @@ def train(model, loss_fn, optimizer, epochs, train_loader,
             Y = torch.sum(labels, dim=1).float().unsqueeze(1)
 
             # forward pass through the model and get the loss
-            Ypred = model(X, set_sizes)
+            mask = get_mask(set_sizes, X.shape[1])
+            Ypred = model(X, mask=mask)
             loss = loss_fn(Ypred, Y)
 
             # backward pass
@@ -67,7 +71,8 @@ def train(model, loss_fn, optimizer, epochs, train_loader,
                     Y = torch.sum(labels, dim=1).float().unsqueeze(1)
 
                     # forward pass through the model and get the loss and accuracy
-                    Ypred = model(X, set_sizes)
+                    mask = get_mask(set_sizes, X.shape[1])
+                    Ypred = model(X, mask=mask)
                     loss = loss_fn(Ypred, Y)
                     loss_hist.append(loss.item())
                     valid_acc += accuracy(Ypred, Y)

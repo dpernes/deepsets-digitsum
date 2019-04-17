@@ -6,8 +6,8 @@ from torch.optim import Adam
 import torch.nn.functional as F
 from torch.utils.data import DataLoader
 
-from models import MNIST_Adder, MNIST_AdderCNN  # choose one
 from datasets import MNIST_Seq, MNIST_SeqOnline  # choose one
+from models import MNIST_Adder, MNIST_AdderCNN  # choose one
 from routines import train, test
 import plotter
 
@@ -38,7 +38,7 @@ def main():
     model = MNIST_AdderCNN()  # or MNIST_Adder
     model.to(device)
     loss = F.l1_loss
-    optimizer = Adam(model.parameters(), lr=args['lr'], eps=1e-3)
+    optimizer = Adam(model.parameters(), lr=args['lr'])
     print(model)
 
     if args['train']:

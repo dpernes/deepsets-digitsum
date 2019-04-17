@@ -18,10 +18,10 @@ class MNIST_Adder(nn.Module):
         self.output_layer = nn.Sequential(nn.ReLU(),
                                           nn.Linear(30, 1))
 
-    def forward(self, X, sizes=None):
+    def forward(self, X, mask=None):
         N, S, C, D, _ = X.shape
         h = self.feature_extractor(X.reshape(N, S, C*D*D))
-        h = self.adder(h, sizes=sizes)
+        h = self.adder(h, mask=mask)
         y = self.output_layer(h)
         return y
 
@@ -48,9 +48,9 @@ class MNIST_AdderCNN(nn.Module):
         )
         self.adder = InvLinear(8, 1, reduction='sum', bias=True)
 
-    def forward(self, X, sizes=None):
+    def forward(self, X, mask=None):
         N, S, C, D, _ = X.shape
         h = self.feature_extractor(X.reshape(N*S, C, D, D))
         h = self.mlp(h.reshape(N, S, -1))
-        y = self.adder(h, sizes=sizes)
+        y = self.adder(h, mask=mask)
         return y
