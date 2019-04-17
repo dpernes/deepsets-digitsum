@@ -13,10 +13,10 @@ import plotter
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Sum MNIST digits.')
+    parser = argparse.ArgumentParser(description='Sum MNIST digits.', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('-t', '--train', default=False, metavar='', help='train the model')
     parser.add_argument('-m', '--model', default='./mnist_adder_cnn.pth', metavar='', help='model file (output of train, input of test)')
-    parser.add_argument('-d', '--data_path', default='./infimnist_data', metavar='', help='data directory')
+    parser.add_argument('-d', '--data_path', default='./infimnist_data', metavar='', help='data directory path')
     parser.add_argument('--n_train', default=None, metavar='', help='number of training examples')
     parser.add_argument('--n_test', default=5000, metavar='', help='number of test examples')
     parser.add_argument('--n_valid', default=1000, metavar='', help='number of validation examples')

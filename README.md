@@ -18,22 +18,22 @@ Testing only: `python image_sum.py`
 The following optional arguments may be passed to `image_sum.py`:
 
     -h, --help         show this help message and exit
-    -t , --train       train the model
-    -m , --model       model file (output of train, input of test)
-    -d , --data_path   data directory
-    --n_train          number of training examples
-    --n_test           number of test examples
-    --n_valid          number of validation examples
-    --max_size_train   maximum size of training sets
-    --min_size_test    minimum size of test sets
-    --max_size_test    maximum size of test sets
-    --lr               learning rate
-    --epochs           number of training epochs
-    --batch_size       batch size
-    --use_cuda         use CUDA capable GPU
-    --use_visdom       use Visdom to visualize plots
-    --visdom_env       Visdom environment name
-    --visdom_port      Visdom port
+    -t , --train       train the model (default: False)
+    -m , --model       model file (output of train, input of test) (default: ./mnist_adder_cnn.pth)
+    -d , --data_path   data directory path (default: ./infimnist_data)
+    --n_train          number of training examples (default: None)
+    --n_test           number of test examples (default: 5000)
+    --n_valid          number of validation examples (default: 1000)
+    --max_size_train   maximum size of training sets (default: 10)
+    --min_size_test    minimum size of test sets (default: 5)
+    --max_size_test    maximum size of test sets (default: 100)
+    --lr               learning rate (default: 0.001)
+    --epochs           number of training epochs (default: 100)
+    --batch_size       batch size (default: 128)
+    --use_cuda         use CUDA capable GPU (default: True)
+    --use_visdom       use Visdom to visualize plots (default: False)
+    --visdom_env       Visdom environment name (default: MNIST Adder)
+    --visdom_port      Visdom port (default: 8888)
 
 ## Results
 Using the default parameters, one obtains better results than those reported in the paper. This is mostly due to the fact that we use a CNN instead of an MLP to extract image features. The test accuracy for set cardinalities between 5 and 100 is shown below.
