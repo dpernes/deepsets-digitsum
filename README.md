@@ -1,7 +1,7 @@
 # Deep Sets: digit sum
 Sum of handwritten digits (MNIST), implemented in PyTorch.
 
-The approach is based on the [Deep Sets paper](https://arxiv.org/abs/1703.06114), by Zaheer *et al.* The orginal implementation by the authors (using Keras) is available [here](https://github.com/manzilzaheer/DeepSets/blob/master/DigitSum/image_sum.ipynb).
+The approach is based on the [Deep Sets paper](https://arxiv.org/abs/1703.06114), by Zaheer *et al.* The original implementation by the authors (using Keras) is available [here](https://github.com/manzilzaheer/DeepSets/blob/master/DigitSum/image_sum.ipynb).
 
 This repo includes a complete PyTorch implementation of both the permutation equivariant and permutation invariant layers, available in ``deepsetlayers.py``.
 
