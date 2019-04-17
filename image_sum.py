@@ -72,7 +72,7 @@ def main():
         print('Train on {} samples, validate on {} samples'.format(
             len(train_set), len(valid_set)))
 
-        train(model, F.l1_loss, optimizer, args['epochs'], train_loader,
+        train(model, loss, optimizer, args['epochs'], train_loader,
               valid_loader=valid_loader, device=device, visdom=train_plt, model_path=args['output'])
 
     if args['n_test'] > 0:
