@@ -15,7 +15,7 @@ class MNIST_Adder(nn.Module):
             nn.ReLU(inplace=True)
         )
         self.adder = InvLinear(30, 30, reduction='sum', bias=True)
-        self.output_layer = nn.Sequential(nn.ReLU(),
+        self.output_layer = nn.Sequential(nn.ReLU(inplace=True),
                                           nn.Linear(30, 1))
 
     def forward(self, X, mask=None):
