@@ -15,7 +15,7 @@ import plotter
 def main():
     parser = argparse.ArgumentParser(description='Sum MNIST digits.')
     parser.add_argument('-t', '--train', default=False, metavar='', help='train the model')
-    parser.add_argument('-o', '--output', default='./mnist_adder_cnn.pth', metavar='', help='output model file')
+    parser.add_argument('-m', '--model', default='./mnist_adder_cnn.pth', metavar='', help='model file (output of train, input of test)')
     parser.add_argument('-d', '--data_path', default='./infimnist_data', metavar='', help='data directory')
     parser.add_argument('--n_train', default=None, metavar='', help='number of training examples')
     parser.add_argument('--n_test', default=5000, metavar='', help='number of test examples')
@@ -73,10 +73,10 @@ def main():
             len(train_set), len(valid_set)))
 
         train(model, loss, optimizer, args['epochs'], train_loader,
-              valid_loader=valid_loader, device=device, visdom=train_plt, model_path=args['output'])
+              valid_loader=valid_loader, device=device, visdom=train_plt, model_path=args['model'])
 
     if args['n_test'] > 0:
-        model.load_state_dict(torch.load(args['output']))
+        model.load_state_dict(torch.load(args['model']))
 
         if args['use_visdom']:
             test_plt = plotter.VisdomDictPlotter(env_name=args['visdom_env'],

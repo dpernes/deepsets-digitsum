@@ -9,7 +9,7 @@ This repo includes a complete PyTorch implementation of both the permutation equ
 We use the [InfiMNIST digits](https://leon.bottou.org/projects/infimnist) exactly as described [here](https://github.com/manzilzaheer/DeepSets/tree/master/DigitSum). For your convenience, you may use our `infimnist_parser.py` to parse the InfiMNIST binaries. This was adapted from [this script](https://github.com/CY-dev/infimnist-parser/blob/master/infimnist_parser.py) in order to produce precisely the required files to run our model.
 
 ## Usage
-The required packages and the respective versions are in the `requirements.txt`file.
+The required packages and the respective versions are in the `requirements.txt` file.
 
 Training and testing: `python image_sum.py --train=1`
 
@@ -19,7 +19,7 @@ The following optional arguments may be passed to `image_sum.py`:
 
     -h, --help         show this help message and exit
     -t , --train       train the model
-    -o , --output      output model file
+    -m , --model       model file (output of train, input of test)
     -d , --data_path   data directory
     --n_train          number of training examples
     --n_test           number of test examples
