@@ -66,9 +66,9 @@ class InvLinear(nn.Module):
             mask = torch.ones(N, M).byte().to(device)
 
         if self.reduction == 'mean':
-            size_matrix = mask.float().sum(dim=1).unsqueeze(1)
+            sizes = mask.float().sum(dim=1).unsqueeze(1)
             Z = X * mask.unsqueeze(2).float()
-            y = (Z.sum(dim=1) @ self.beta)/size_matrix
+            y = (Z.sum(dim=1) @ self.beta)/sizes
 
         elif self.reduction == 'sum':
             Z = X * mask.unsqueeze(2).float()
